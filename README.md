@@ -38,4 +38,4 @@ Number of address space passed in high 8 bits of i2c address, number of register
 |CAM_FRAME_WIDTH			|0x84|Frame width(single image width)|
 |CAM_FRAME_HEIGHT			|0x86|Frame height(single image width)|
 
-When writing to CAM_FRAME_WIDTH or CAM_FRAME_HEIGHT, internal registers will update and also necessary registers of MT1 and MT2 will configure image size and offsets to allign image to the center of pixels array. The result image, which will stream to Portenta will have 2xCAM_FRAME_WIDTH witdh. 
+When writing to CAM_FRAME_WIDTH or CAM_FRAME_HEIGHT, internal registers will update and also necessary registers of MT1 and MT2 will configure image size and offsets to allign image to the center of pixels array. The result image, which will stream to Portenta will have 2xCAM_FRAME_WIDTH width. 
