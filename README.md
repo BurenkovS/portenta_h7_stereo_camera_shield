@@ -18,9 +18,6 @@ RISC-V soft-cpu inside FPGA is used for communication with image sensors and Ard
 
 Here is simplified example of distance measurement based on blob detection algorithm, implemented in OpenMV framework:
 
-![1](https://user-images.githubusercontent.com/16865504/214338940-0334cf08-6fe6-4d48-a3cd-bff89aba52db.gif)
-
-
 https://user-images.githubusercontent.com/16865504/214339641-29158f36-7dc3-4a27-aaf4-9f4db2ad2988.mp4
 
 
