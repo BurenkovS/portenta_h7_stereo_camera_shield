@@ -36,7 +36,7 @@ Shield is controlled by I2C interface. 16-bitwidth address and  16-bitwidth data
  -  2 - direct access to MT2 image sensor i2c registers
  -  3 - simultaneously write to both MT1 and MT2 sensors *(not tested yet)*
 
-Number of address space passed in high 8 bits of i2c address, number of register to wite is passed in low 8 bits of address.  For example, to wite data to MT2 register 0x35(analog gain) user should provide i2c address as 0x0235.
+Number of address space passed in high 8 bits of i2c address, number of register to write is passed in low 8 bits of address.  For example, to write data to MT2 register 0x35(analog gain) user should provide i2c address as 0x0235.
 
 **Internal FPGA processor registers :**
 
