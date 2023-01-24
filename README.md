@@ -17,11 +17,13 @@ RISC-V soft-cpu inside FPGA is used for communication with image sensors and Ard
 <img src="https://user-images.githubusercontent.com/16865504/214307930-dd9ed489-e82f-4246-8c2d-3810b5594efd.jpg" alt="h7sterecam1" width="300"/>
 
  **Features**
+ 
  - MT9V034 image sensors (monochrome, global shutter, HDR)
  - Gowin GW2AR FPGA with RISC-V soft-cpu core inside
  - SD card 
  
  **Operation**
+ 
 Shield is controlled by I2C interface. 16-bitwidth address and  16-bitwidth data is using. There is 4 address spaces inside:
  -  0 - internal FPGA processor registers. Using for control common camera functions
  -  1 - direct access to MT1 image sensor i2c registers
