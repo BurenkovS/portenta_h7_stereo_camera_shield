@@ -17,7 +17,7 @@ RISC-V soft-cpu inside FPGA is used for communication with image sensors and Ard
 
  **Features**
  - MT9V034 image sensors (monochrome, global shutter, HDR)
- - Gowin GW2AR FPGA
+ - Gowin GW2AR FPGA with RISC-V soft-cpu core inside
  - SD card 
  
  **Operation**
