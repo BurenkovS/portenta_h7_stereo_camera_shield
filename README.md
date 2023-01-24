@@ -16,6 +16,10 @@ RISC-V soft-cpu inside FPGA is used for communication with image sensors and Ard
 
 <img src="https://user-images.githubusercontent.com/16865504/214307930-dd9ed489-e82f-4246-8c2d-3810b5594efd.jpg" alt="h7sterecam1" width="300"/>
 
+Here is simplified example of distance measurement based on blob detection algorithm, implemented in OpenMV framework:
+
+![1](https://user-images.githubusercontent.com/16865504/214338940-0334cf08-6fe6-4d48-a3cd-bff89aba52db.gif)
+
  **Features**
  
  - MT9V034 image sensors (monochrome, global shutter, HDR)
@@ -41,3 +45,5 @@ Number of address space passed in high 8 bits of i2c address, number of register
 |CAM_FRAME_HEIGHT			|0x86|Frame height(single image width)|
 
 When writing to CAM_FRAME_WIDTH or CAM_FRAME_HEIGHT, internal registers will update and also necessary registers of MT1 and MT2 will configure image size and offsets to allign image to the center of pixels array. The result image, which will stream to Portenta will have 2xCAM_FRAME_WIDTH width. 
+
+
