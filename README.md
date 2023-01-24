@@ -5,6 +5,7 @@
 
 Stereo camera aka binocular camera shield for Arduino portenta H7. Shield is build on pair of MT9V034 monochrome imaging sensors with global shutter and high dynamic range (HDR) operation. 
 Image processing is performed by Gowin GW2AR FPGA with embedded SDRAM.
+
 <img src="https://user-images.githubusercontent.com/16865504/214307833-3e3a0660-f572-4efa-ba7d-4d174b4c0a16.jpg" alt="h7sterecam1" width="300"/>
 
 Global shutter allow to capture images not affected by motion blur. All this make camera module perfect for professional machine vision applications. Gowin GW2AR FPGA have enough resources not only for simple image stitching, but also for comlex preprocessing. Some functions as sensors rectification, filtering,  morphological transformations and so on may be implemented in the future. 
