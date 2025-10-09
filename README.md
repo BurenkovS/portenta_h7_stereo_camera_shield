@@ -26,7 +26,8 @@ https://user-images.githubusercontent.com/16865504/214339641-29158f36-7dc3-4a27-
  
  - MT9V034 image sensors (monochrome, global shutter, HDR)
  - Gowin GW2AR FPGA with RISC-V soft-cpu core inside
- - SD card 
+ - SD card
+ - FPGA ISP with frame-difference, gamma correction and morphological transformations are implemented
  
  **Operation**
  
@@ -46,6 +47,10 @@ Number of address space passed in high 8 bits of i2c address, number of register
 |CAM_EXPOSURE_REG_HIGH	|0x82           |High 16 bits  of exposure(in 27Mhz ticks)            |
 |CAM_FRAME_WIDTH			|0x84|Frame width(single image width)|
 |CAM_FRAME_HEIGHT			|0x86|Frame height(single image width)|
+|CAM_DIFF_MODE			|0x88|Write 1 to emable frame-difference mode|
+|CAM_FILTERS_TYPE			|0x8A|Morphological transformations filters mode. See the description below|
+|CAM_GAMMA_OFFSET			|0x8C|LUT ram offset for write|
+|CAM_GAMMA_VALUE			|0x8E|LUT ram data for write|
 
 When writing to CAM_FRAME_WIDTH or CAM_FRAME_HEIGHT, internal registers will update and also necessary registers of MT1 and MT2 will configure image size and offsets to allign image to the center of pixels array. The result image, which will stream to Portenta will have 2xCAM_FRAME_WIDTH width. 
 
