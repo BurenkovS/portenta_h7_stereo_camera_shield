@@ -1,0 +1,8 @@
+
+#define	PARAMS_BLOCK_OFFSET		0x30000000			// абсолютный отступ блока параметров, находящегося в ПЛИС-части
+
+// Относительные отступы отдельных параметров
+
+#define PARAMS_WRITTEN_OFFSET	0x00
+#define FRAME_HEIGH_OFFSET		0x04
+#define	FRAME_WIDTH_OFFSET		0x08				// шаг адресов должен быть кратен, иначе всё зависнет

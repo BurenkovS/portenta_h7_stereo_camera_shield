@@ -1,0 +1,19 @@
+/*
+ * cam_registers.h
+ *
+ *  Created on: 7 апр. 2022 г.
+ *      Author: —€гаев
+ */
+
+// –егистровое пространство камеры дл€ i2c-интерфейса от Arduino
+
+#ifndef USER_CAM_REGISTERS_H_
+#define USER_CAM_REGISTERS_H_
+
+#define		CAM_EXPOSURE_REG_LOW 	0x80
+#define		CAM_EXPOSURE_REG_HIGH	0x81
+
+#define			I2C_SLAVE_RCVD_ADDR_OFFSET			0x38000000
+#define			I2C_SLAVE_RCVD_VAL_OFFSET			0x38000004
+
+#endif /* USER_CAM_REGISTERS_H_ */

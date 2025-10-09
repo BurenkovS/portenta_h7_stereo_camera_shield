@@ -1,0 +1,7 @@
+/*
+ * gamma_correction.c
+ *
+ *  Created on: 23 сент. 2025 г.
+ *      Author: user
+ */
+#include "gamma_correction.h"

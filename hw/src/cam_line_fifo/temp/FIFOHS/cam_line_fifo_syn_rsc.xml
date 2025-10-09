@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="cam_line_fifo" Register="55" Alu="10" Lut="86" Bsram="1" Ssram="3"/>

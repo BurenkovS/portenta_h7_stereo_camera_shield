@@ -1,0 +1,33 @@
+/*
+ * params_block.c
+ *
+ *  Created on: 18 џэт. 2023 у.
+ *      Author: buren
+ */
+
+#include "params_block.h"
+#include "log.h"
+
+void cam_param_block_reg_write(uint8_t reg, uint16_t val)
+{
+	uint16_t* params_ptr = (uint16_t*)(PARAMS_BLOCK_OFFSET + reg);
+	*params_ptr = val;
+}
+
+uint16_t cam_param_block_reg_read(uint8_t reg)
+{
+	uint16_t* params_ptr = (uint16_t*)(PARAMS_BLOCK_OFFSET + reg);
+	return *params_ptr;
+}
+
+void cam_param_block_flush_and_drive()
+{
+	cam_param_block_reg_write(CONTROL_REG_OFFSET, CONTROL_REG_FLUSH);
+	cam_param_block_reg_write(CONTROL_REG_OFFSET, CONTROL_REG_FLUSH | CONTROL_REG_ENABLE_MT_DRIVE);
+}
+
+void cam_param_block_flush()
+{
+	uint16_t reg_current_state = cam_param_block_reg_read(CONTROL_REG_OFFSET);
+	reg_current_state |=
+}

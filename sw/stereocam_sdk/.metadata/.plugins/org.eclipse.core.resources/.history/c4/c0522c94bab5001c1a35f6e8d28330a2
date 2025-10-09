@@ -1,0 +1,92 @@
+/*
+ * *****************************************************************************************
+ *
+ * 		Copyright (C) 2014-2020 Gowin Semiconductor Technology Co.,Ltd.
+ *
+ * @file		main.c
+ * @author		Embedded Development Team
+ * @version		V1.2
+ * @date		2020-6-30 09:00:00
+ * @brief		Main body.
+ ******************************************************************************************
+ */
+
+/* Includes --------------------------------------------------------------------- */
+#include "config.h"
+#include "picorv32.h"
+#include "firmware.h"
+#include "simpleuart.h"
+#include "wbuart.h"
+#include "wbgpio.h"
+#include "wb_i2c_master.h"
+#include "params_block.h"
+
+#define get_char()   wbuart_getc()
+#define put_char(c)  wbuart_putc(c)
+
+volatile unsigned int	FRAME_WIDTH	 =	752;
+volatile unsigned int	FRAME_HEIGHT =	480;
+
+int main(void)
+{
+	unsigned char led;
+
+	unsigned short int *params_ptr;
+	led = 1;
+	delay(100000000);
+	// **************************************************************************************
+	// 		Инициализирующая запись значений в блок параметров
+	// **************************************************************************************
+	params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + FRAME_HEIGH_OFFSET);
+	*params_ptr = FRAME_HEIGHT;
+	params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + FRAME_WIDTH_OFFSET);
+	*params_ptr = FRAME_WIDTH;
+
+	params_ptr = (short unsigned int*) PARAMS_BLOCK_OFFSET;				// в конце надо прописать бит, сигнализирующий, что значения на блоке параметров изменились
+	*params_ptr = 1;
+	// **************************************************************************************
+
+	GPIO_Init(PICO_WBGPIO);
+	WB_i2c_master_wr_struct WB_wr;
+
+	while (1)
+	{
+		delay(50000000);
+		GPIO_SetDir(PICO_WBGPIO, led);				// что бы понять, что ничего не зависло и для периодичности
+		led = led << 1;
+
+		// **************************************************************************************
+		// 		Инициализация матриц по i2c
+		// **************************************************************************************
+
+		WB_wr.dev_addr = MT1_I2C_ADDR;
+		WB_wr.reg_addr = CHIP_CONTROL_REG_ADDR;
+		WB_wr.wr_data = 0x0380;						// конфигурируем в slave simultaneous
+		write_to_wb_i2c_master(&WB_wr);
+		WB_wr.dev_addr = MT2_I2C_ADDR;				// то же дублируем во вторую матрицу
+		write_to_wb_i2c_master(&WB_wr);
+
+		WB_wr.dev_addr = MT1_I2C_ADDR;
+		WB_wr.reg_addr = WINDOW_WIDTH_REG_ADDR;
+		WB_wr.wr_data = FRAME_WIDTH;				// запись ширины кадра
+		write_to_wb_i2c_master(&WB_wr);
+		WB_wr.dev_addr = MT2_I2C_ADDR;				// то же дублируем во вторую матрицу
+		write_to_wb_i2c_master(&WB_wr);
+
+		WB_wr.dev_addr = MT1_I2C_ADDR;
+		WB_wr.reg_addr = WINDOW_HEIGH_REG_ADDR;
+		WB_wr.wr_data = FRAME_WIDTH;				// запись ширины кадра
+		write_to_wb_i2c_master(&WB_wr);
+		WB_wr.dev_addr = MT2_I2C_ADDR;				// то же дублируем во вторую матрицу
+		write_to_wb_i2c_master(&WB_wr);
+
+		// **************************************************************************************
+	}
+
+
+
+
+
+
+	return 0;
+}

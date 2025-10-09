@@ -1,0 +1,15 @@
+/*
+ * gamma_correction.c
+ *
+ *  Created on: 23 сент. 2025 г.
+ *      Author: user
+ */
+#include "gamma_correction.h"
+
+void init_gamma(float gamma)
+{
+	uint32_t* params_ptr = (uint32_t*)(GAMMA_TABLE_OFFSET);
+	uint32_t i;
+	for(i = 0; i < (256/4); ++i)
+		*(params_ptr+i*4) = val;
+}

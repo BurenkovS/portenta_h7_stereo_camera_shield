@@ -1,0 +1,18 @@
+/*
+ * gamma_correction.h
+ *
+ *  Created on: 23 сент. 2025 г.
+ *      Author: user
+ */
+
+#ifndef USER_GAMMA_CORRECTION_H_
+#define USER_GAMMA_CORRECTION_H_
+
+#include <stdint.h>
+
+#define	GAMMA_TABLE_OFFSET		0x31000000
+
+//to set gamma 0.5 pass gammaInt = 0, gammaFrac divider of 100 to get nesessary value- 100/200=0.5
+void init_gamma(uint8_t gammaInt, uint8_t gammaFrac);
+
+#endif /* USER_GAMMA_CORRECTION_H_ */

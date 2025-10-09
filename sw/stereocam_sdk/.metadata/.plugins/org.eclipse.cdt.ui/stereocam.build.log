@@ -1,0 +1,124 @@
+14:14:00 **** Incremental Build of configuration Debug for project stereocam ****
+make all 
+Building file: ../user/cam_controller.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"user/cam_controller.d" -MT"user/cam_controller.o" -c -o "user/cam_controller.o" "../user/cam_controller.c"
+In file included from ../user/cam_controller.c:14:
+../user/mt9v034.h: In function 'MT9GetAGC_AECvalues':
+../user/mt9v034.h:258:9: warning: implicit declaration of function 'I2C_Read16'; did you mean 'I2C_Enable'? [-Wimplicit-function-declaration]
+  return I2C_Read16(dev, MTV_AGC_OUTPUT_REG, uiVer);
+         ^~~~~~~~~~
+         I2C_Enable
+Finished building: ../user/cam_controller.c
+ 
+Building file: ../user/gamma_correction.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"user/gamma_correction.d" -MT"user/gamma_correction.o" -c -o "user/gamma_correction.o" "../user/gamma_correction.c"
+Finished building: ../user/gamma_correction.c
+ 
+Building file: ../user/globals.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"user/globals.d" -MT"user/globals.o" -c -o "user/globals.o" "../user/globals.c"
+Finished building: ../user/globals.c
+ 
+Building file: ../user/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"user/main.d" -MT"user/main.o" -c -o "user/main.o" "../user/main.c"
+In file included from ../user/main.c:24:
+../user/mt9v034.h: In function 'MT9GetAGC_AECvalues':
+../user/mt9v034.h:258:9: warning: implicit declaration of function 'I2C_Read16'; did you mean 'I2C_Enable'? [-Wimplicit-function-declaration]
+  return I2C_Read16(dev, MTV_AGC_OUTPUT_REG, uiVer);
+         ^~~~~~~~~~
+         I2C_Enable
+Finished building: ../user/main.c
+ 
+Building file: ../user/params_block.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"user/params_block.d" -MT"user/params_block.o" -c -o "user/params_block.o" "../user/params_block.c"
+Finished building: ../user/params_block.c
+ 
+Building file: ../user/printf.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"user/printf.d" -MT"user/printf.o" -c -o "user/printf.o" "../user/printf.c"
+Finished building: ../user/printf.c
+ 
+Building file: ../system/firmware.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"system/firmware.d" -MT"system/firmware.o" -c -o "system/firmware.o" "../system/firmware.c"
+../system/firmware.c: In function 'stats_print_dec':
+../system/firmware.c:23:21: warning: implicit declaration of function 'outbyte' [-Wimplicit-function-declaration]
+ #define put_char(c) outbyte(c)
+                     ^~~~~~~
+../system/firmware.c:43:3: note: in expansion of macro 'put_char'
+   put_char(*(--p));
+   ^~~~~~~~
+Finished building: ../system/firmware.c
+ 
+Building file: ../system/irq.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"system/irq.d" -MT"system/irq.o" -c -o "system/irq.o" "../system/irq.c"
+Finished building: ../system/irq.c
+ 
+Building file: ../system/loader.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"system/loader.d" -MT"system/loader.o" -c -o "system/loader.o" "../system/loader.c"
+Finished building: ../system/loader.c
+ 
+Building file: ../startup/custom_ops.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -x assembler-with-cpp -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\startup" -MMD -MP -MF"startup/custom_ops.d" -MT"startup/custom_ops.o" -c -o "startup/custom_ops.o" "../startup/custom_ops.S"
+Finished building: ../startup/custom_ops.S
+ 
+Building file: ../startup/start.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -x assembler-with-cpp -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\startup" -MMD -MP -MF"startup/start.d" -MT"startup/start.o" -c -o "startup/start.o" "../startup/start.S"
+Finished building: ../startup/start.S
+ 
+Building file: ../peripherals/sources/advspi.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"peripherals/sources/advspi.d" -MT"peripherals/sources/advspi.o" -c -o "peripherals/sources/advspi.o" "../peripherals/sources/advspi.c"
+Finished building: ../peripherals/sources/advspi.c
+ 
+Building file: ../peripherals/sources/simpleuart.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"peripherals/sources/simpleuart.d" -MT"peripherals/sources/simpleuart.o" -c -o "peripherals/sources/simpleuart.o" "../peripherals/sources/simpleuart.c"
+Finished building: ../peripherals/sources/simpleuart.c
+ 
+Building file: ../peripherals/sources/wbgpio.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"peripherals/sources/wbgpio.d" -MT"peripherals/sources/wbgpio.o" -c -o "peripherals/sources/wbgpio.o" "../peripherals/sources/wbgpio.c"
+Finished building: ../peripherals/sources/wbgpio.c
+ 
+Building file: ../peripherals/sources/wbi2c.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"peripherals/sources/wbi2c.d" -MT"peripherals/sources/wbi2c.o" -c -o "peripherals/sources/wbi2c.o" "../peripherals/sources/wbi2c.c"
+Finished building: ../peripherals/sources/wbi2c.c
+ 
+Building file: ../peripherals/sources/wbspi.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"peripherals/sources/wbspi.d" -MT"peripherals/sources/wbspi.o" -c -o "peripherals/sources/wbspi.o" "../peripherals/sources/wbspi.c"
+Finished building: ../peripherals/sources/wbspi.c
+ 
+Building file: ../peripherals/sources/wbuart.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\config" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\peripherals\includes" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\system" -I"C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\user" -std=gnu11 -MMD -MP -MF"peripherals/sources/wbuart.d" -MT"peripherals/sources/wbuart.o" -c -o "peripherals/sources/wbuart.o" "../peripherals/sources/wbuart.c"
+Finished building: ../peripherals/sources/wbuart.c
+ 
+Building target: stereocam.elf
+Invoking: GNU RISC-V Cross C Linker
+riscv-none-embed-gcc -march=rv32imc -mabi=ilp32 -mtune=size -mcmodel=medany -msmall-data-limit=8 -mstrict-align -msave-restore -Os -fmessage-length=0 -ffunction-sections -fdata-sections -fno-builtin  -g3 -T "C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\stereocam_sdk\stereocam\linker\sections.lds" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"stereocam.map" -o "stereocam.elf"  ./user/cam_controller.o ./user/gamma_correction.o ./user/globals.o ./user/main.o ./user/params_block.o ./user/printf.o  ./system/firmware.o ./system/irq.o ./system/loader.o  ./startup/custom_ops.o ./startup/start.o  ./peripherals/sources/advspi.o ./peripherals/sources/simpleuart.o ./peripherals/sources/wbgpio.o ./peripherals/sources/wbi2c.o ./peripherals/sources/wbspi.o ./peripherals/sources/wbuart.o   
+Finished building target: stereocam.elf
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-none-embed-objcopy -O binary -j .text -j .data -j.irqsec -j.ldsec -j.btsec "stereocam.elf"  "stereocam.bin"
+Finished building: stereocam.bin
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-none-embed-size --format=berkeley "stereocam.elf"
+   text	   data	    bss	    dec	    hex	filename
+   3688	     20	      4	   3712	    e80	stereocam.elf
+Finished building: stereocam.siz
+ 
+
+14:14:03 Build Finished (took 3s.22ms)
+

@@ -1,0 +1,846 @@
+[
+ {
+  "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_master_shell.sv",
+  "InstLine" : 1,
+  "InstName" : "i2c_master_shell",
+  "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_master_shell.sv",
+  "ModuleLine" : 1,
+  "ModuleName" : "i2c_master_shell",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_master_shell.sv",
+    "InstLine" : 308,
+    "InstName" : "i2c_master_inst",
+    "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_master.v",
+    "ModuleLine" : 32,
+    "ModuleName" : "i2c_master"
+   }
+  ]
+ },
+ {
+  "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+  "InstLine" : 1,
+  "InstName" : "TOP",
+  "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "TOP",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+    "InstLine" : 112,
+    "InstName" : "i2c_arduino_slave_inst",
+    "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_arduino_slave.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "i2c_arduino_slave",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_arduino_slave.v",
+      "InstLine" : 86,
+      "InstName" : "i2c_slave_inst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_slave.v",
+      "ModuleLine" : 32,
+      "ModuleName" : "i2c_slave"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+    "InstLine" : 158,
+    "InstName" : "rPLL_inst",
+    "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+    "InstLine" : 165,
+    "InstName" : "rPLL_54_inst_name",
+    "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_rpll_54/gowin_rpll_54.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_rPLL_54"
+   },
+   {
+    "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+    "InstLine" : 225,
+    "InstName" : "videoSubsystemInst",
+    "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+    "ModuleLine" : 1,
+    "ModuleName" : "video_subsystem",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 85,
+      "InstName" : "mt9v034_slave_seq_mode_inst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/mt9v034_slave_seq_mode.sv",
+      "ModuleLine" : 2,
+      "ModuleName" : "mt9v034_slave_seq_mode"
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 115,
+      "InstName" : "mt1RcvInst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_receiver.v",
+      "ModuleLine" : 14,
+      "ModuleName" : "dcmi_receiver",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_receiver.v",
+        "InstLine" : 100,
+        "InstName" : "dcmi_in_fifo_inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_in_fifo/dcmi_in_fifo.v",
+        "ModuleLine" : 277,
+        "ModuleName" : "dcmi_in_fifo",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_in_fifo/dcmi_in_fifo.v",
+          "InstLine" : 300,
+          "InstName" : "fifo_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_in_fifo/dcmi_in_fifo.v",
+          "ModuleLine" : 13,
+          "ModuleName" : "~fifo.dcmi_in_fifo"
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_receiver.v",
+        "InstLine" : 135,
+        "InstName" : "inputStreamMonitorInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/input_stream_monitor.sv",
+        "ModuleLine" : 1,
+        "ModuleName" : "input_stream_monitor"
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 140,
+      "InstName" : "mt2RcvInst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_receiver.v",
+      "ModuleLine" : 14,
+      "ModuleName" : "dcmi_receiver",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_receiver.v",
+        "InstLine" : 100,
+        "InstName" : "dcmi_in_fifo_inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_in_fifo/dcmi_in_fifo.v",
+        "ModuleLine" : 277,
+        "ModuleName" : "dcmi_in_fifo",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_in_fifo/dcmi_in_fifo.v",
+          "InstLine" : 300,
+          "InstName" : "fifo_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_in_fifo/dcmi_in_fifo.v",
+          "ModuleLine" : 13,
+          "ModuleName" : "~fifo.dcmi_in_fifo"
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_receiver.v",
+        "InstLine" : 135,
+        "InstName" : "inputStreamMonitorInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/input_stream_monitor.sv",
+        "ModuleLine" : 1,
+        "ModuleName" : "input_stream_monitor"
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 166,
+      "InstName" : "stitcherInst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stitcher_v2.sv",
+      "ModuleLine" : 2,
+      "ModuleName" : "stitcher_v2",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stitcher_v2.sv",
+        "InstLine" : 115,
+        "InstName" : "cam1_line_fifo_inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/cam_line_fifo/cam_line_fifo.v",
+        "ModuleLine" : 505,
+        "ModuleName" : "cam_line_fifo",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/cam_line_fifo/cam_line_fifo.v",
+          "InstLine" : 528,
+          "InstName" : "fifo_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/cam_line_fifo/cam_line_fifo.v",
+          "ModuleLine" : 10,
+          "ModuleName" : "~fifo.cam_line_fifo"
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stitcher_v2.sv",
+        "InstLine" : 128,
+        "InstName" : "cam2_line_fifo_inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/cam_line_fifo/cam_line_fifo.v",
+        "ModuleLine" : 505,
+        "ModuleName" : "cam_line_fifo",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/cam_line_fifo/cam_line_fifo.v",
+          "InstLine" : 528,
+          "InstName" : "fifo_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/cam_line_fifo/cam_line_fifo.v",
+          "ModuleLine" : 10,
+          "ModuleName" : "~fifo.cam_line_fifo"
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stitcher_v2.sv",
+        "InstLine" : 156,
+        "InstName" : "collected_fifo_inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/collected_fifo/collected_fifo.v",
+        "ModuleLine" : 651,
+        "ModuleName" : "collected_fifo",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/collected_fifo/collected_fifo.v",
+          "InstLine" : 676,
+          "InstName" : "fifo_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/collected_fifo/collected_fifo.v",
+          "ModuleLine" : 10,
+          "ModuleName" : "~fifo.collected_fifo"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 196,
+      "InstName" : "gamma_correctionInst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gamma_correction.sv",
+      "ModuleLine" : 1,
+      "ModuleName" : "gamma_correction",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gamma_correction.sv",
+        "InstLine" : 96,
+        "InstName" : "small_pipe_comp_fifoInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+        "ModuleLine" : 175,
+        "ModuleName" : "small_pipe_comp_fifo",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+          "InstLine" : 200,
+          "InstName" : "fifo_sc_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+          "ModuleLine" : 13,
+          "ModuleName" : "~fifo_sc.small_pipe_comp_fifo"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 231,
+      "InstName" : "frame_diffInst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_diff.sv",
+      "ModuleLine" : 3,
+      "ModuleName" : "frame_diff",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_diff.sv",
+        "InstLine" : 54,
+        "InstName" : "frameBufferInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+        "ModuleLine" : 3,
+        "ModuleName" : "frame_buffer",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 63,
+          "InstName" : "bit8ToBit32Inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "ModuleLine" : 418,
+          "ModuleName" : "bit8ToBit32"
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 72,
+          "InstName" : "sdramWriteFifo",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_write_fifo_v3/sdram_write_fifo_v3.v",
+          "ModuleLine" : 182,
+          "ModuleName" : "sdram_write_fifo_v3",
+          "SubInsts" : [
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_write_fifo_v3/sdram_write_fifo_v3.v",
+            "InstLine" : 207,
+            "InstName" : "fifo_sc_hs_inst",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_write_fifo_v3/sdram_write_fifo_v3.v",
+            "ModuleLine" : 12,
+            "ModuleName" : "~fifo_sc_hs.sdram_write_fifo_v3"
+           }
+          ]
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 88,
+          "InstName" : "sdramWriteFifoCopy",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_write_fifo_v3/sdram_write_fifo_v3.v",
+          "ModuleLine" : 182,
+          "ModuleName" : "sdram_write_fifo_v3",
+          "SubInsts" : [
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_write_fifo_v3/sdram_write_fifo_v3.v",
+            "InstLine" : 207,
+            "InstName" : "fifo_sc_hs_inst",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_write_fifo_v3/sdram_write_fifo_v3.v",
+            "ModuleLine" : 12,
+            "ModuleName" : "~fifo_sc_hs.sdram_write_fifo_v3"
+           }
+          ]
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 120,
+          "InstName" : "SDRAM_controller_top_SIP_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/SDRAM_controller_top_SIP/SDRAM_controller_top_SIP.v",
+          "ModuleLine" : 2723,
+          "ModuleName" : "SDRAM_controller_top_SIP",
+          "SubInsts" : [
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/SDRAM_controller_top_SIP/SDRAM_controller_top_SIP.v",
+            "InstLine" : 2975,
+            "InstName" : "sdrc_top_inst",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/SDRAM_controller_top_SIP/SDRAM_controller_top_SIP.v",
+            "ModuleLine" : 15,
+            "ModuleName" : "~top.SDRAM_controller_top_SIP"
+           }
+          ]
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 176,
+          "InstName" : "[0].pixDiffInst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "ModuleLine" : 371,
+          "ModuleName" : "pixDiff"
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 176,
+          "InstName" : "[1].pixDiffInst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "ModuleLine" : 371,
+          "ModuleName" : "pixDiff"
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 176,
+          "InstName" : "[2].pixDiffInst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "ModuleLine" : 371,
+          "ModuleName" : "pixDiff"
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 176,
+          "InstName" : "[3].pixDiffInst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "ModuleLine" : 371,
+          "ModuleName" : "pixDiff"
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+          "InstLine" : 188,
+          "InstName" : "sdramReadFifoInst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_read_fifo_hs/sdram_read_fifo_hs.v",
+          "ModuleLine" : 406,
+          "ModuleName" : "sdram_read_fifo_hs",
+          "SubInsts" : [
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_read_fifo_hs/sdram_read_fifo_hs.v",
+            "InstLine" : 429,
+            "InstName" : "fifo_inst",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_read_fifo_hs/sdram_read_fifo_hs.v",
+            "ModuleLine" : 10,
+            "ModuleName" : "~fifo.sdram_read_fifo_hs"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 279,
+      "InstName" : "morph_filterInst1",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+      "ModuleLine" : 1,
+      "ModuleName" : "morph_filter",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 35,
+        "InstName" : "ramBasedShiftRegTap1Inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+        "ModuleLine" : 1,
+        "ModuleName" : "ram_based_shift_reg",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+          "InstLine" : 23,
+          "InstName" : "ram_sr_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_sr/ram_sr.v",
+          "ModuleLine" : 9,
+          "ModuleName" : "ram_sr"
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 50,
+        "InstName" : "ramBasedShiftRegTap2Inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+        "ModuleLine" : 1,
+        "ModuleName" : "ram_based_shift_reg",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+          "InstLine" : 23,
+          "InstName" : "ram_sr_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_sr/ram_sr.v",
+          "ModuleLine" : 9,
+          "ModuleName" : "ram_sr"
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 116,
+        "InstName" : "filter_pipelineInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+        "ModuleLine" : 2,
+        "ModuleName" : "filter_pipeline",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+          "InstLine" : 24,
+          "InstName" : "sort_3values_pipeStage1Inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+          "ModuleLine" : 84,
+          "ModuleName" : "sort_3values_pipeline",
+          "SubInsts" : [
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 126,
+            "InstName" : "sort_2values_combSt1A",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 133,
+            "InstName" : "sort_2values_combSt1B",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 140,
+            "InstName" : "sort_2values_combSt2A",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 147,
+            "InstName" : "sort_2values_combSt2B",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           }
+          ]
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+          "InstLine" : 35,
+          "InstName" : "sort_3values_pipeStage2Inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+          "ModuleLine" : 84,
+          "ModuleName" : "sort_3values_pipeline",
+          "SubInsts" : [
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 126,
+            "InstName" : "sort_2values_combSt1A",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 133,
+            "InstName" : "sort_2values_combSt1B",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 140,
+            "InstName" : "sort_2values_combSt2A",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 147,
+            "InstName" : "sort_2values_combSt2B",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 136,
+        "InstName" : "DelayLineSopDly",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/DelayLine.v",
+        "ModuleLine" : 2,
+        "ModuleName" : "DelayLine"
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 148,
+        "InstName" : "small_pipe_comp_fifoInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+        "ModuleLine" : 175,
+        "ModuleName" : "small_pipe_comp_fifo",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+          "InstLine" : 200,
+          "InstName" : "fifo_sc_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+          "ModuleLine" : 13,
+          "ModuleName" : "~fifo_sc.small_pipe_comp_fifo"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 309,
+      "InstName" : "morph_filterInst2",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+      "ModuleLine" : 1,
+      "ModuleName" : "morph_filter",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 35,
+        "InstName" : "ramBasedShiftRegTap1Inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+        "ModuleLine" : 1,
+        "ModuleName" : "ram_based_shift_reg",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+          "InstLine" : 23,
+          "InstName" : "ram_sr_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_sr/ram_sr.v",
+          "ModuleLine" : 9,
+          "ModuleName" : "ram_sr"
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 50,
+        "InstName" : "ramBasedShiftRegTap2Inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+        "ModuleLine" : 1,
+        "ModuleName" : "ram_based_shift_reg",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+          "InstLine" : 23,
+          "InstName" : "ram_sr_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_sr/ram_sr.v",
+          "ModuleLine" : 9,
+          "ModuleName" : "ram_sr"
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 116,
+        "InstName" : "filter_pipelineInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+        "ModuleLine" : 2,
+        "ModuleName" : "filter_pipeline",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+          "InstLine" : 24,
+          "InstName" : "sort_3values_pipeStage1Inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+          "ModuleLine" : 84,
+          "ModuleName" : "sort_3values_pipeline",
+          "SubInsts" : [
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 126,
+            "InstName" : "sort_2values_combSt1A",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 133,
+            "InstName" : "sort_2values_combSt1B",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 140,
+            "InstName" : "sort_2values_combSt2A",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 147,
+            "InstName" : "sort_2values_combSt2B",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           }
+          ]
+         },
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+          "InstLine" : 35,
+          "InstName" : "sort_3values_pipeStage2Inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+          "ModuleLine" : 84,
+          "ModuleName" : "sort_3values_pipeline",
+          "SubInsts" : [
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 126,
+            "InstName" : "sort_2values_combSt1A",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 133,
+            "InstName" : "sort_2values_combSt1B",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 140,
+            "InstName" : "sort_2values_combSt2A",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           },
+           {
+            "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "InstLine" : 147,
+            "InstName" : "sort_2values_combSt2B",
+            "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+            "ModuleLine" : 192,
+            "ModuleName" : "sort_2values_comb"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 136,
+        "InstName" : "DelayLineSopDly",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/DelayLine.v",
+        "ModuleLine" : 2,
+        "ModuleName" : "DelayLine"
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+        "InstLine" : 148,
+        "InstName" : "small_pipe_comp_fifoInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+        "ModuleLine" : 175,
+        "ModuleName" : "small_pipe_comp_fifo",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+          "InstLine" : 200,
+          "InstName" : "fifo_sc_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+          "ModuleLine" : 13,
+          "ModuleName" : "~fifo_sc.small_pipe_comp_fifo"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 335,
+      "InstName" : "bypass_loopFilterInst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stream_route.sv",
+      "ModuleLine" : 65,
+      "ModuleName" : "bypass_loop",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stream_route.sv",
+        "InstLine" : 97,
+        "InstName" : "demux_1_to_2_combInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stream_route.sv",
+        "ModuleLine" : 32,
+        "ModuleName" : "demux_1_to_2_comb"
+       },
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stream_route.sv",
+        "InstLine" : 118,
+        "InstName" : "mux_2_to_1_combInst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stream_route.sv",
+        "ModuleLine" : 2,
+        "ModuleName" : "mux_2_to_1_comb"
+       }
+      ]
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+      "InstLine" : 369,
+      "InstName" : "dcmi_out_inst",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_out.sv",
+      "ModuleLine" : 1,
+      "ModuleName" : "dcmi_out",
+      "SubInsts" : [
+       {
+        "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_out.sv",
+        "InstLine" : 61,
+        "InstName" : "dcmi_out_fifo_v2_inst",
+        "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_out_fifo_v2/dcmi_out_fifo_v2.v",
+        "ModuleLine" : 876,
+        "ModuleName" : "dcmi_out_fifo_v2",
+        "SubInsts" : [
+         {
+          "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_out_fifo_v2/dcmi_out_fifo_v2.v",
+          "InstLine" : 905,
+          "InstName" : "fifo_inst",
+          "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_out_fifo_v2/dcmi_out_fifo_v2.v",
+          "ModuleLine" : 13,
+          "ModuleName" : "~fifo.dcmi_out_fifo_v2"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+    "InstLine" : 281,
+    "InstName" : "PicoRV32_inst",
+    "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+    "ModuleLine" : 23079,
+    "ModuleName" : "Gowin_PicoRV32_Top",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "InstLine" : 24358,
+      "InstName" : "core",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "ModuleLine" : 22,
+      "ModuleName" : "picorv32"
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "InstLine" : 24458,
+      "InstName" : "itcm",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "ModuleLine" : 19406,
+      "ModuleName" : "picosoc_itcm"
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "InstLine" : 24468,
+      "InstName" : "dtcm",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "ModuleLine" : 19756,
+      "ModuleName" : "picosoc_dtcm"
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "InstLine" : 24494,
+      "InstName" : "simpleuart",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "ModuleLine" : 19887,
+      "ModuleName" : "simpleuart"
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "InstLine" : 24525,
+      "InstName" : "wb",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "ModuleLine" : 20990,
+      "ModuleName" : "wishbone_bus"
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "InstLine" : 24584,
+      "InstName" : "wb_intercon",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "ModuleLine" : 21334,
+      "ModuleName" : "wisbhone_intercon"
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "InstLine" : 24637,
+      "InstName" : "wbgpio_ins",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "ModuleLine" : 21801,
+      "ModuleName" : "wb_gpio"
+     },
+     {
+      "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "InstLine" : 24659,
+      "InstName" : "wbi2c_ins",
+      "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+      "ModuleLine" : 21958,
+      "ModuleName" : "i2c_master_top"
+     }
+    ]
+   },
+   {
+    "InstFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+    "InstLine" : 317,
+    "InstName" : "params_block_inst",
+    "ModuleFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/params_block.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "params_block"
+   }
+  ]
+ }
+]

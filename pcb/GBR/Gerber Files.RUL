@@ -1,0 +1,10 @@
+DRC Rules Export File for PCB: D:\Documents\Google Drive\Documents\Work\Сергей Буренков\Stereo Camera Shield\Project\STEREO_CAMERA_SHIELD.PcbDoc
+RuleKind=Clearance|RuleName=Teardrops|Scope=Board|Minimum=7.87
+RuleKind=Clearance|RuleName=BoarrdOutline|Scope=Board|Minimum=15.75
+RuleKind=Clearance|RuleName=VIA-PAD|Scope=Board|Minimum=3.94
+RuleKind=Clearance|RuleName=Poly|Scope=Board|Minimum=9.84
+RuleKind=MinimumAnnularRing|RuleName=Minimum AR VIA Standart|Scope=Board|Minimum=5.91
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion-1|Scope=Board|Minimum=1.97
+RuleKind=Width|RuleName=Width 1 Oz|Scope=Board|Minimum=5.91
+RuleKind=Clearance|RuleName=Clearance-1 1/2 Oz|Scope=Board|Minimum=9.84

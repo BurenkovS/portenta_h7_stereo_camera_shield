@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="small_pipe_comp_fifo" Register="14" Alu="10" Lut="22" Bsram="1" T_Register="14(14)" T_Alu="10(10)" T_Lut="22(22)" T_Bsram="1(1)"/>

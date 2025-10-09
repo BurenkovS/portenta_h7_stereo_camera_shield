@@ -1,0 +1,37 @@
+/*
+ * gamma_correction.c
+ *
+ *  Created on: 23 сент. 2025 г.
+ *      Author: user
+ */
+#include "gamma_correction.h"
+#include "math.h"
+
+void build_gamma_table_float_optimized(uint8_t* table, float gamma) {
+    float inverse_gamma = 1.0f / gamma;
+    float scale = 255.0f;
+    float inv_scale = 1.0f / 255.0f;
+
+    for (int i = 0; i < 256; i++) {
+        float normalized = (float)i * inv_scale;
+        float corrected = powf(normalized, inverse_gamma);
+        int result = (int)(corrected * scale + 0.5f);
+
+        table[i] = (uint8_t)(result < 0 ? 0 : (result > 255 ? 255 : result));
+    }
+}
+
+static uint8_t gamma_table[256];
+void init_gamma(uint8_t gammaInt, uint8_t gammaFrac)
+{
+	float gamma = (float)gammaInt + (100.0F/gammaFrac);
+
+	build_gamma_table_float_optimized(gamma_table, gamma);
+
+	uint32_t* params_ptr = (uint32_t*)(GAMMA_TABLE_OFFSET);
+	uint32_t i;
+	for(i = 0; i < 256/4; ++i)
+	{
+		*(params_ptr+i) = (gamma_table[i+3] << 24) | (gamma_table[i+2] << 16) | (gamma_table[i+1] << 8) | gamma_table[i];
+	}
+}

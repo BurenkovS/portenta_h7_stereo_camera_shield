@@ -1,0 +1,172 @@
+/*
+ * cam_control.c
+ *
+ *  Created on: 7 мая 2022 г.
+ *      Author: PocT
+ */
+
+#include <stdbool.h>
+#include <stdint.h>
+
+#include "firmware.h"
+#include "cam_controller.h"
+#include "gamma_correction.h"
+#include "mt9v034.h"
+#include "log.h"
+
+volatile uint32_t frameWidth	 	= 320;//640;//752;
+volatile uint32_t frameHeight 		= 240;//480;//480;
+volatile uint32_t targetExposure 	= 0x079b00;
+//Following is not used in current version
+volatile uint32_t min_SF2E			= 0xF000;	// minimal Start Frame To Exposure
+
+void change_frame_size_helper(uint32_t new_width, uint32_t new_height)
+{
+	cam_param_block_reg_write(CONTROL_REG_OFFSET, 0x0);//stop drive sensors
+	delay(70000);
+	LOG("change_frame_size_helper w %d h %d\n\r", new_width, new_height);
+	cam_param_block_reg_write(FRAME_WIDTH_OFFSET, new_width);
+	cam_param_block_reg_write(FRAME_HEIGHT_OFFSET, new_height);
+	//cam_param_block_flush();
+
+	uint16_t offset_X = (MAX_IMAGE_WIDTH - new_width) >> 1;
+	uint16_t offset_Y = (MAX_IMAGE_HEIGHT - new_height) >> 1;
+	offset_Y = offset_Y < 4 ? 4 : offset_Y;	// min ROW_START_REG is 4.
+	//The MT9V034 uses column parallel analog-digital converters; thus short row timing is not possible.
+	// The minimum total row time is 704 columns (horizontal width + horizontal blanking)
+	//The minimum horizontal blanking is 61 for normal mode, 71 for column bin 2 mode, and
+	//91 for column bin 4 mode. When the window width is set below 643, horizontal blanking must be increased
+	int16_t hBlank = MINIMUM_TOTAL_ROW_TIME - new_width;
+	hBlank = (hBlank < MINIMUM_HORIZONTAL_BLANKING) ? MINIMUM_HORIZONTAL_BLANKING : hBlank;
+
+	MT9SetWidth(MT1_I2C_ADDR, new_width);
+	MT9SetHBlank(MT1_I2C_ADDR, (uint16_t)hBlank);
+	MT9SetHeight(MT1_I2C_ADDR, new_height);
+	MT9SetColStart(MT1_I2C_ADDR, offset_X);
+	MT9SetRowStart(MT1_I2C_ADDR, offset_Y);
+
+
+	MT9SetWidth(MT2_I2C_ADDR, new_width);
+	MT9SetHBlank(MT2_I2C_ADDR, (uint16_t)hBlank);
+	MT9SetHeight(MT2_I2C_ADDR, new_height);
+	MT9SetColStart(MT2_I2C_ADDR, offset_X);
+	MT9SetRowStart(MT2_I2C_ADDR, offset_Y);
+	LOG("offset_X %d offset_Y %d hBlank %d\n\r", offset_X, offset_Y, hBlank);
+	delay(70000);
+	cam_param_block_flush_and_drive();//update registers  and start generation of control signals
+}
+
+void cam_control_init()
+{
+	// init sensors
+
+	MT9Initialize(MT1_I2C_ADDR);
+    MT9Initialize(MT2_I2C_ADDR);
+    MT9SetAGC_AEC(MT1_I2C_ADDR, false, false);
+    MT9SetAGC_AEC(MT2_I2C_ADDR, false, false);
+    MT9SetCompanding(MT1_I2C_ADDR, true);
+    MT9SetCompanding(MT2_I2C_ADDR, true);
+
+    //set framesize
+    change_frame_size_helper(frameWidth, frameHeight);
+
+    //set other parameters in block
+	cam_param_block_reg_write(TARGET_EXPOSURE_LOW_OFFSET, targetExposure & 0xffff);
+	cam_param_block_reg_write(TARGET_EXPOSURE_HIGH_OFFSET, (targetExposure & 0xffff0000) >> 16);
+	cam_param_block_reg_write(SF2E_HIGH_OFFSET, (min_SF2E & 0xffff0000) >> 16);
+	cam_param_block_reg_write(SF2E_LOW_OFFSET, min_SF2E & 0xffff);
+
+	//calculate gamma
+	//init_gamma(0.5);
+
+	cam_param_block_flush_and_drive();
+}
+
+void process_common_control(uint8_t reg, uint16_t data)
+{
+	bool flush = true;
+
+	switch(reg)
+	{
+		case CAM_EXPOSURE_REG_LOW :
+			targetExposure = targetExposure & (0xffff << 16);								// очистка младшей части
+			targetExposure = targetExposure | data;
+			cam_param_block_reg_write(TARGET_EXPOSURE_LOW_OFFSET, targetExposure & 0xffff);
+		break;
+
+		case CAM_EXPOSURE_REG_HIGH :
+			targetExposure = targetExposure & 0xffff;										// очистка старшей части
+			targetExposure = targetExposure | ((uint32_t) data << 16);
+			cam_param_block_reg_write(TARGET_EXPOSURE_HIGH_OFFSET, (targetExposure & 0xffff0000) >> 16);
+			cam_param_block_flush();
+		break;
+
+		case CAM_FRAME_WIDTH :
+			frameWidth = data;
+			//cam_param_block_reg_write(FRAME_WIDTH_OFFSET, frameWidth);
+			//change_width_helper(frameWidth);
+			break;
+
+		case CAM_FRAME_HEIGHT :
+			frameHeight = data;
+			//cam_param_block_reg_write(FRAME_HEIGHT_OFFSET, frameHeight);
+			change_frame_size_helper(frameWidth, frameHeight);
+			break;
+
+		case CAM_DIFF_MODE :
+			cam_param_block_reg_write(DIFF_MODE_OFFSET, data);
+			break;
+
+		case CAM_FILTERS_TYPE :
+			cam_param_block_reg_write(FILTERS_TYPE_OFFSET, data);
+			break;
+
+		default :
+			flush = false;
+			break;
+	}
+	//if(flush)
+	//	cam_param_block_flush();
+}
+
+
+volatile short unsigned int	rcvd_i2c_slave_addr;		// данные, принятые по i2c
+volatile short unsigned int	rcvd_i2c_slave_val;
+void cam_control_i2c_control_process()
+{
+	// ****************************** чтение значений с i2c-слейва, соединённого с Arduino *************************
+	uint16_t *i2c_slave_rcv_ptr;
+	i2c_slave_rcv_ptr = (uint16_t*)I2C_SLAVE_RCVD_ADDR_OFFSET;
+	uint16_t rcvd_i2c_slave_addr = *i2c_slave_rcv_ptr;
+	i2c_slave_rcv_ptr = (uint16_t*)I2C_SLAVE_RCVD_VAL_OFFSET;
+	uint16_t rcvd_i2c_slave_val = *i2c_slave_rcv_ptr;
+
+	uint8_t addr_lo = (rcvd_i2c_slave_addr) & 0x00FF;
+	uint8_t addr_hi = (rcvd_i2c_slave_addr >> 8) & 0x00FF;
+	LOG("COMMON_CAM_HI_ADDR %d\n\r", rcvd_i2c_slave_val);
+
+
+	switch(addr_hi)
+	{
+		case COMMON_CAM_HI_ADDR :
+			process_common_control(addr_lo, rcvd_i2c_slave_val);
+			LOG("COMMON_CAM_HI_ADDR %d\n\r", rcvd_i2c_slave_val);
+			break;
+
+		case MT1_HI_ADDR:
+			MT9RegWrite(MT1_I2C_ADDR, addr_lo, rcvd_i2c_slave_val);
+			//LOG("MT1_HI_ADDR reg %x data %x\n\r", addr_lo, rcvd_i2c_slave_val);
+			break;
+
+		case MT2_HI_ADDR :
+			MT9RegWrite(MT2_I2C_ADDR, addr_lo, rcvd_i2c_slave_val);
+			//LOG("MT2_HI_ADDR reg %x data %x\n\r", addr_lo, rcvd_i2c_slave_val);
+			break;
+
+		case MT1_MT2_HI_ADDR :// not supported yet
+			break;
+
+		default: break;
+
+	}
+}

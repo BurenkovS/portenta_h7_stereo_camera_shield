@@ -1,0 +1,1 @@
+makehex32.exe	stereocam.bin

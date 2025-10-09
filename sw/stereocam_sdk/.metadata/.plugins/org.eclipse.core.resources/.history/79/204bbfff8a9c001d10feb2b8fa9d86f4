@@ -1,0 +1,75 @@
+/*
+ * *****************************************************************************************
+ *
+ * 		Copyright (C) 2014-2020 Gowin Semiconductor Technology Co.,Ltd.
+ *
+ * @file		main.c
+ * @author		Embedded Development Team
+ * @version		V1.2
+ * @date		2020-6-30 09:00:00
+ * @brief		Main body.
+ ******************************************************************************************
+ */
+
+/* Includes --------------------------------------------------------------------- */
+#include "config.h"
+#include "picorv32.h"
+#include "firmware.h"
+#include "simpleuart.h"
+#include "wbgpio.h"
+#include "wb_i2c_master.h"
+#include "params_block.h"
+#include "globals.h"
+#include "cam_controller.h"
+#include "mt9v034.h"
+#include "log.h"
+
+#include "irq.h"
+
+//#define get_char()   wbuart_getc()
+//#define put_char(c)  wbuart_putc(c)
+
+int main(void)
+{
+	semaphore_i2c_irq = 0;
+
+	char	i2c_param_rcvd;						// флаг - данные по i2c были приняты (общий)
+	char	i2c_target_exposure_rcvd;			// для принятия младшей и старшей части параметра в произвольном порядке
+
+	irq_unmask_one_bit(20);
+
+	//enable interrupt
+	__asm__ __volatile__("li t4, 0x800");
+	__asm__ __volatile__("csrrs t5, mie, t4");  //enable external interrupt
+	__asm__ __volatile__("csrrwi t5, mstatus, 8");
+
+	unsigned short int *params_ptr;
+
+	//delay(5000000);
+
+	uint8_t led = 1;
+	GPIO_Init(PICO_WBGPIO);
+	GPIO_SetDir(PICO_WBGPIO, 0x3);				// что бы понять, что ничего не зависло и для периодичности
+	GPIO_WriteData(PICO_WBGPIO,led);
+
+	uart_init(115200);
+	LOG("LOG ENABLED!\n\r");
+
+    cam_control_init();
+
+    led = led << 1;
+	GPIO_WriteData(PICO_WBGPIO,led);
+
+	//delay(5000000);
+
+	while(1)
+	{
+		if (semaphore_i2c_irq == 1)						// было получено прерывание от i2c Arduino
+		{
+			cam_control_i2c_control_process();
+			semaphore_i2c_irq = 0;
+		}
+	}
+
+	return 0;
+}

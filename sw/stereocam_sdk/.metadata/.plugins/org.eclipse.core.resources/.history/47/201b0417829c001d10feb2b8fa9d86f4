@@ -1,0 +1,41 @@
+/*
+ * cam_control.h
+ *
+ *  Created on: 7 мая 2022 г.
+ *      Author: PocT
+ */
+
+#ifndef USER_CAM_CONTROLLER_H_
+#define USER_CAM_CONTROLLER_H_
+
+#include "globals.h"
+#include "params_block.h"
+#include "wb_i2c_master.h"
+
+#define	MT1_I2C_ADDR (0x90 >> 1)
+#define	MT2_I2C_ADDR (0xB0 >> 1)
+
+#define	I2C_SLAVE_RCVD_ADDR_OFFSET			0x38000000
+#define	I2C_SLAVE_RCVD_VAL_OFFSET			0x38000004
+
+#define	COMMON_CAM_HI_ADDR 0x00 // write to stereo camera regs
+#define	MT1_HI_ADDR 0x01		// forward to MT1
+#define	MT2_HI_ADDR 0x02		// forward to MT2
+#define	MT1_MT2_HI_ADDR 0x03	// forward to both MT1 and MT2(set slave addr to same for both on 1 transaction)
+
+#define	CAM_EXPOSURE_REG_LOW 	0x80
+#define	CAM_EXPOSURE_REG_HIGH	0x82
+#define	CAM_FRAME_WIDTH			0x84
+#define	CAM_FRAME_HEIGH			0x86
+
+
+// ////
+// Функции изменения размера изображения. Меняют и в params ПЛИС, и в сенсорах. Сдвиг к центру так же программируется.
+// ////
+void change_height_helper(unsigned int new_height);
+void change_width_helper(unsigned int new_width);
+
+void cam_control_init();
+void cam_control_i2c_control_process();
+
+#endif /* USER_CAM_CONTROLLER_H_ */

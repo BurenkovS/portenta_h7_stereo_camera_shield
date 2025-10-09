@@ -1,0 +1,148 @@
+/*
+ * func.c
+ *
+ *  Created on: 7 мая 2022 г.
+ *      Author: PocT
+ */
+
+#include "cam_controller.h"
+#include "mt9v034.h"
+
+#include <stdbool.h>
+#include <stdint.h>
+
+
+volatile uint32_t FRAME_WIDTH	 =	320;//752;
+volatile uint32_t FRAME_HEIGHT =	240;//480;
+volatile uint32_t TARGET_EXPOSURE = 0x079b00;
+volatile uint32_t min_SF2E		= 0xF000;	// minimal Start Frame To Exposure
+
+inline void change_width_helper(unsigned int new_width)
+{
+	cam_param_block_reg_write(FRAME_WIDTH_OFFSET, new_width);
+	cam_param_block_flush();
+
+	unsigned short int  offset_X = (MAX_WIDTH - new_width) >> 1;
+
+	MT9SetWidth(MT1_I2C_ADDR, new_width);
+	MT9SetWidth(MT2_I2C_ADDR, new_width);
+	MT9SetColStart(MT1_I2C_ADDR, offset_X);
+	MT9SetColStart(MT2_I2C_ADDR, offset_X);
+}
+
+inline void change_height_helper(unsigned int new_height)
+{
+	unsigned short int *params_ptr;
+	unsigned short int offset_Y;				// отступ к центру
+
+	cam_param_block_reg_write(FRAME_HEIGHT_OFFSET, new_height);
+	cam_param_block_flush();
+
+	offset_Y = (MAX_HEIGHT - new_height) >> 1;
+	offset_Y += 4;								// минимальное значение для регистра ROW_START_REG равно 4.
+
+	MT9SetHeight(MT1_I2C_ADDR, new_height);
+	MT9SetHeight(MT2_I2C_ADDR, new_height);
+	MT9SetRowStart(MT1_I2C_ADDR, offset_Y);
+	MT9SetRowStart(MT2_I2C_ADDR, offset_Y);
+}
+void cam_control_init()
+{
+	// init sensors
+    MT9Initialize(MT1_I2C_ADDR);
+    MT9Initialize(MT2_I2C_ADDR);
+    MT9SetAGC_AEC(MT1_I2C_ADDR, false, false);
+    MT9SetAGC_AEC(MT2_I2C_ADDR, false, false);
+    MT9SetCompanding(MT1_I2C_ADDR, true);
+    MT9SetCompanding(MT2_I2C_ADDR, true);
+    change_width_helper(FRAME_WIDTH);
+	change_height_helper(FRAME_HEIGHT);
+
+
+    //init pipeline
+	cam_param_block_reg_write(TARGET_EXPOSURE_LOW_OFFSET, TARGET_EXPOSURE & 0xffff);
+	cam_param_block_reg_write(TARGET_EXPOSURE_HIGH_OFFSET, (TARGET_EXPOSURE & 0xffff0000) >> 16);
+	cam_param_block_reg_write(SF2E_HIGH_OFFSET, (min_SF2E & 0xffff0000) >> 16);
+	cam_param_block_reg_write(SF2E_LOW_OFFSET, min_SF2E & 0xffff);
+	cam_param_block_reg_write(FRAME_WIDTH_OFFSET, FRAME_WIDTH);
+	cam_param_block_reg_write(FRAME_HEIGHT_OFFSET, FRAME_HEIGHT);
+	cam_param_block_flush();
+
+}
+
+void process_common_control(uint8_t reg, uint16_t data)
+{
+	bool flush = true;
+
+	switch(reg)
+	{
+		case CAM_EXPOSURE_REG_LOW :
+			TARGET_EXPOSURE = TARGET_EXPOSURE & (0xffff << 16);								// очистка младшей части
+			TARGET_EXPOSURE = TARGET_EXPOSURE | data;
+			cam_param_block_reg_write(TARGET_EXPOSURE_LOW_OFFSET, TARGET_EXPOSURE & 0xffff);
+		break;
+
+		case CAM_EXPOSURE_REG_HIGH :
+			TARGET_EXPOSURE = TARGET_EXPOSURE & 0xffff;										// очистка старшей части
+			TARGET_EXPOSURE = TARGET_EXPOSURE | ((uint32_t) data << 16);
+			cam_param_block_reg_write(TARGET_EXPOSURE_HIGH_OFFSET, (TARGET_EXPOSURE & 0xffff0000) >> 16);
+		break;
+
+		case CAM_FRAME_WIDTH :
+			FRAME_WIDTH = data;
+			cam_param_block_reg_write(FRAME_WIDTH_OFFSET, FRAME_WIDTH);
+			change_width_helper(FRAME_WIDTH);
+			break;
+
+		case CAM_FRAME_HEIGH :
+			FRAME_HEIGHT = data;
+			cam_param_block_reg_write(FRAME_HEIGHT_OFFSET, FRAME_HEIGHT);
+			change_height_helper(FRAME_HEIGHT);
+			break;
+
+		default :
+			flush = false;
+			break;
+	}
+	if(flush)
+		cam_param_block_flush();
+}
+
+
+volatile short unsigned int	rcvd_i2c_slave_addr;		// данные, принятые по i2c
+volatile short unsigned int	rcvd_i2c_slave_val;
+void cam_control_i2c_control_process()
+{
+	// ****************************** чтение значений с i2c-слейва, соединённого с Arduino *************************
+	uint16_t *i2c_slave_rcv_ptr;
+	i2c_slave_rcv_ptr = (uint16_t*)I2C_SLAVE_RCVD_ADDR_OFFSET;
+	uint16_t rcvd_i2c_slave_addr = *i2c_slave_rcv_ptr;
+	i2c_slave_rcv_ptr = (uint16_t*)I2C_SLAVE_RCVD_VAL_OFFSET;
+	uint16_t rcvd_i2c_slave_val = *i2c_slave_rcv_ptr;
+
+	uint8_t addr_lo = (rcvd_i2c_slave_addr) & 0x00FF;
+	uint8_t addr_hi = (rcvd_i2c_slave_addr >> 8) & 0x00FF;
+
+	//printf("addr_hi %x addr_lo %x rcvd_i2c_slave_val %x", addr_hi, addr_lo, rcvd_i2c_slave_val);
+
+	switch(addr_hi)
+	{
+		case COMMON_CAM_HI_ADDR :
+			process_common_control(addr_lo, rcvd_i2c_slave_val);
+			break;
+
+		case MT1_HI_ADDR:
+			MT9WriteReg(MT1_I2C_ADDR, addr_lo, rcvd_i2c_slave_val);
+			break;
+
+		case MT2_HI_ADDR :
+			MT9WriteReg(MT2_I2C_ADDR, addr_lo, rcvd_i2c_slave_val);
+			break;
+
+		case MT1_MT2_HI_ADDR :// not supported yet
+			break;
+
+		default: break;
+
+	}
+}

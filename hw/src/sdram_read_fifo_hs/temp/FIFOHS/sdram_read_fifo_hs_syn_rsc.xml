@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="sdram_read_fifo_hs" Register="47" Alu="13" Lut="66" Bsram="1" Ssram="2"/>

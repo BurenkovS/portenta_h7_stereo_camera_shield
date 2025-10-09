@@ -1,0 +1,51 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\src\sdram_write_fifo_v3\temp\FIFO_SC\fifo_sc_hs_define.v'
+Analyzing Verilog file 'C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\src\sdram_write_fifo_v3\temp\FIFO_SC\fifo_sc_hs_parameter.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v'
+Analyzing included file 'fifo_sc_hs_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\static_macro_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Analyzing included file 'fifo_sc_hs_parameter.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Analyzing included file 'fifo_sc_hs_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\static_macro_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":14570)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v'
+Analyzing included file 'fifo_sc_hs_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v":1)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v":1)
+Analyzing included file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\static_macro_define.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v":2)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v":2)
+Analyzing included file 'fifo_sc_hs_parameter.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v":47)
+Back to file 'C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v":47)
+WARN  (EX2582) : Parameter 'DEPTH' declared inside compilation unit '$unit_fifo_sc_hs_define_v' shall be treated as localparam("fifo_sc_hs_parameter.v":1)
+WARN  (EX2582) : Parameter 'DSIZE' declared inside compilation unit '$unit_fifo_sc_hs_define_v' shall be treated as localparam("fifo_sc_hs_parameter.v":2)
+WARN  (EX2582) : Parameter 'AFULL' declared inside compilation unit '$unit_fifo_sc_hs_define_v' shall be treated as localparam("fifo_sc_hs_parameter.v":3)
+WARN  (EX2582) : Parameter 'ASIZE' declared inside compilation unit '$unit_fifo_sc_hs_define_v' shall be treated as localparam("fifo_sc_hs_parameter.v":4)
+Compiling module 'sdram_write_fifo_v3'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs_top.v":4)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":0)
+Extracting RAM for identifier '**'("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":0)
+WARN  (EX3791) : Expression size ** truncated to fit in target size **("C:\Gowin\Gowin_V1.9.9_x64\IDE\ipcore\FIFO_SC_HS\data\fifo_sc_hs.v":0)
+NOTE  (EX0101) : Current top module is "sdram_write_fifo_v3"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\src\sdram_write_fifo_v3\temp\FIFO_SC\sdram_write_fifo_v3.vg" completed
+Generate template file "C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\src\sdram_write_fifo_v3\temp\FIFO_SC\sdram_write_fifo_v3_tmp.v" completed
+[100%] Generate report file "C:\Users\user\projects\others\openmv_sterecam\gowin\stereocam_seq\src\sdram_write_fifo_v3\temp\FIFO_SC\sdram_write_fifo_v3_syn.rpt.html" completed
+GowinSynthesis finish

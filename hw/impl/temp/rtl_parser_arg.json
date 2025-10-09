@@ -1,0 +1,141 @@
+{
+ "Device" : "GW2AR-18",
+ "Files" : [
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/DelayLine.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/SDRAM_controller_top_SIP/SDRAM_controller_top_SIP.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/cam_line_fifo/cam_line_fifo.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/collected_fifo/collected_fifo.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_in_fifo/dcmi_in_fifo.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_out.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_out_fifo_v2/dcmi_out_fifo_v2.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/dcmi_receiver.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/filter_pipeline.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_buffer.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/frame_diff.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gamma_correction.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/gowin_picorv32.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_rpll_54/gowin_rpll_54.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_arduino_slave.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_master.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_master_shell.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/i2c_slave.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/input_stream_monitor.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/morph_filter.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/mt9v034_slave_seq_mode.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/params_block.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_based_shift_reg.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/ram_sr/ram_sr.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_read_fifo_hs/sdram_read_fifo_hs.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/sdram_write_fifo_v3/sdram_write_fifo_v3.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/small_pipe_comp_fifo/small_pipe_comp_fifo.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stitcher_v2.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/stream_route.sv",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/video_subsystem.sv",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/impl/temp/rtl_parser.result",
+ "Top" : "TOP",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}

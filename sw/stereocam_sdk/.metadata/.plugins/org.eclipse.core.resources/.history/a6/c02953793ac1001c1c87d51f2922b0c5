@@ -1,0 +1,171 @@
+/*
+ * *****************************************************************************************
+ *
+ * 		Copyright (C) 2014-2020 Gowin Semiconductor Technology Co.,Ltd.
+ *
+ * @file		main.c
+ * @author		Embedded Development Team
+ * @version		V1.2
+ * @date		2020-6-30 09:00:00
+ * @brief		Main body.
+ ******************************************************************************************
+ */
+
+/* Includes --------------------------------------------------------------------- */
+#include "config.h"
+#include "picorv32.h"
+#include "firmware.h"
+#include "simpleuart.h"
+#include "wbuart.h"
+#include "wbgpio.h"
+#include "wb_i2c_master.h"
+#include "params_block.h"
+#include "cam_registers.h"
+#include "globals.h"
+#include "irq.h"
+
+#define get_char()   wbuart_getc()
+#define put_char(c)  wbuart_putc(c)
+
+int main(void)
+{
+	semaphore_i2c_irq = 0;
+
+	char	i2c_param_rcvd;						// флаг - данные по i2c были приняты
+	char	i2c_target_exposure_rcvd;			// для принятия младшей и старшей части параметра в произвольном порядке
+
+	irq_unmask_one_bit(20);
+
+	//enable interrupt
+	__asm__ __volatile__("li t4, 0x800");
+	__asm__ __volatile__("csrrs t5, mie, t4");  //enable external interrupt
+	__asm__ __volatile__("csrrwi t5, mstatus, 8");
+
+	unsigned short int *params_ptr;
+	led = 1;
+	delay(50000000);
+
+	GPIO_Init(PICO_WBGPIO);
+	GPIO_SetDir(PICO_WBGPIO, 0x3);				// что бы понять, что ничего не зависло и для периодичности
+	GPIO_WriteData(PICO_WBGPIO,led);
+	WB_i2c_master_wr_struct WB_wr;
+
+	// **************************************************************************************
+	// 		Инициализация матриц по i2c
+	// **************************************************************************************
+	WB_wr.dev_addr = MT1_I2C_ADDR;
+	WB_wr.reg_addr = CHIP_CONTROL_REG_ADDR;
+	WB_wr.wr_data = 0x0380;						// конфигурируем в slave simultaneous
+	write_to_wb_i2c_master(&WB_wr);
+	WB_wr.dev_addr = MT2_I2C_ADDR;				// то же дублируем во вторую матрицу
+	write_to_wb_i2c_master(&WB_wr);
+
+	WB_wr.dev_addr = MT1_I2C_ADDR;
+	WB_wr.reg_addr = WINDOW_WIDTH_REG_ADDR;
+	WB_wr.wr_data = FRAME_WIDTH;				// запись ширины кадра
+	write_to_wb_i2c_master(&WB_wr);
+	WB_wr.dev_addr = MT2_I2C_ADDR;				// то же дублируем во вторую матрицу
+	write_to_wb_i2c_master(&WB_wr);
+
+	WB_wr.dev_addr = MT1_I2C_ADDR;
+	WB_wr.reg_addr = WINDOW_HEIGH_REG_ADDR;
+	WB_wr.wr_data = FRAME_HEIGHT;				// запись высоты кадра
+	write_to_wb_i2c_master(&WB_wr);
+	WB_wr.dev_addr = MT2_I2C_ADDR;				// то же дублируем во вторую матрицу
+	write_to_wb_i2c_master(&WB_wr);
+
+	// **************************************************************************************
+
+	delay(50000000);
+	led = led << 1;
+	GPIO_WriteData(PICO_WBGPIO,led);
+	// **************************************************************************************
+	// 		Инициализирующая запись значений в блок параметров
+	// **************************************************************************************
+	params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + FRAME_HEIGH_OFFSET);
+	*params_ptr = FRAME_HEIGHT;
+	params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + FRAME_WIDTH_OFFSET);
+	*params_ptr = FRAME_WIDTH;
+	params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + TARGET_EXPOSURE_HIGH_OFFSET);
+	*params_ptr = ((unsigned int)(TARGET_EXPOSURE & 0xffff0000)) >> 16;
+	params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + TARGET_EXPOSURE_LOW_OFFSET);
+	*params_ptr = (TARGET_EXPOSURE & 0xffff);
+	params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + SF2E_HIGH_OFFSET);
+	*params_ptr = ((unsigned int)(min_SF2E & 0xffff0000)) >> 16;
+	params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + SF2E_LOW_OFFSET);
+	*params_ptr = (min_SF2E & 0xffff);
+
+	params_ptr = (short unsigned int*) PARAMS_BLOCK_OFFSET;				// в конце надо прописать бит, сигнализирующий, что значения на блоке параметров изменились
+	*params_ptr = 1;
+	// **************************************************************************************
+
+	delay(50000000);
+	i2c_param_rcvd = 0;									// очищаем флаги
+	i2c_target_exposure_rcvd = 0;
+	while(1)
+	{
+		if (semaphore_i2c_irq == 1)						// было получено прерывание от i2c Arduino
+		{
+			// ****************************** чтение значений с i2c-слейва, соединённого с Arduino *************************
+			short unsigned int *i2c_slave_rcv_ptr;
+			i2c_slave_rcv_ptr = (unsigned short int*)I2C_SLAVE_RCVD_ADDR_OFFSET;
+			rcvd_i2c_slave_addr = *i2c_slave_rcv_ptr;
+			i2c_slave_rcv_ptr = (unsigned short int*)I2C_SLAVE_RCVD_VAL_OFFSET;
+			rcvd_i2c_slave_val = *i2c_slave_rcv_ptr;
+
+			if(rcvd_i2c_slave_addr == CAM_EXPOSURE_REG_LOW)
+			{
+				TARGET_EXPOSURE = TARGET_EXPOSURE & 0xffff;										// очистка младшей части
+				TARGET_EXPOSURE = TARGET_EXPOSURE | (rcvd_i2c_slave_val );
+				i2c_target_exposure_rcvd++;
+				if (i2c_target_exposure_rcvd == 2)												// если обе части приняты
+				{
+					i2c_param_rcvd = 1;
+					i2c_target_exposure_rcvd = 0;
+				}
+			}
+			else if (rcvd_i2c_slave_addr == CAM_EXPOSURE_REG_HIGH)
+			{
+				TARGET_EXPOSURE = TARGET_EXPOSURE & (0xffff << 16);								// очистка старшей части
+				TARGET_EXPOSURE = TARGET_EXPOSURE | ((unsigned int) rcvd_i2c_slave_val << 16);
+				i2c_target_exposure_rcvd++;
+				if (i2c_target_exposure_rcvd == 2)												// если обе части приняты
+				{
+					i2c_param_rcvd = 1;
+					i2c_target_exposure_rcvd = 0;
+				}
+			}
+
+			semaphore_i2c_irq = 0;						// освобождаем семафор в конце действий
+
+			// *****************************************************************************************************
+			// Если по итогам обработки прерывания были получены новые параметры - переписываем все параметры скопом
+			// *****************************************************************************************************
+			if (i2c_param_rcvd)
+			{
+				params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + FRAME_HEIGH_OFFSET);
+				*params_ptr = FRAME_HEIGHT;
+				params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + FRAME_WIDTH_OFFSET);
+				*params_ptr = FRAME_WIDTH;
+				params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + TARGET_EXPOSURE_HIGH_OFFSET);
+				*params_ptr = ((unsigned int)(TARGET_EXPOSURE & 0xffff0000)) >> 16;
+				params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + TARGET_EXPOSURE_LOW_OFFSET);
+				*params_ptr = (TARGET_EXPOSURE & 0xffff);
+				params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + SF2E_HIGH_OFFSET);
+				*params_ptr = ((unsigned int)(min_SF2E & 0xffff0000)) >> 16;
+				params_ptr = (short unsigned int*)(PARAMS_BLOCK_OFFSET + SF2E_LOW_OFFSET);
+				*params_ptr = (min_SF2E & 0xffff);
+
+				params_ptr = (short unsigned int*) PARAMS_BLOCK_OFFSET;				// в конце надо прописать бит, сигнализирующий, что значения на блоке параметров изменились
+				*params_ptr = 1;
+			}
+
+
+
+
+		}
+	}
+
+	return 0;
+}
+

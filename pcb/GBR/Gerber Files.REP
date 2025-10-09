@@ -1,0 +1,220 @@
+*************************************************************
+FileName = Gerber Files.GBR
+AutoAperture = True
+*************************************************************
+Generating : Bottom Layer
+      File : Gerber Files.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D11
+    D12
+    D38
+    D52
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+    D63
+    D64
+    D65
+    D66
+    D67
+*************************************************************
+
+*************************************************************
+Generating : Board Outline
+      File : Gerber Files.GM9
+
+    Adding Layer      : Board Outline
+
+
+Used DCodes :
+    D75
+*************************************************************
+
+*************************************************************
+Generating : Signal Layer 2
+      File : Gerber Files.G2
+
+    Adding Layer      : Signal Layer 2
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D64
+*************************************************************
+
+*************************************************************
+Generating : Top Layer
+      File : Gerber Files.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D11
+    D12
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+    D63
+    D64
+*************************************************************
+
+*************************************************************
+Generating : Legend
+      File : Gerber Files.GM7
+
+    Adding Layer      : Legend
+
+
+Used DCodes :
+    D73
+    D74
+    D75
+    D76
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : Gerber Files.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : Gerber Files.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D17
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D68
+    D69
+    D70
+*************************************************************
+
+*************************************************************
+Generating : Signal Layer 1
+      File : Gerber Files.G1
+
+    Adding Layer      : Signal Layer 1
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D61
+    D64
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : Gerber Files.GBO
+
+    Adding Layer      : Bottom Overlay
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D71
+    D72
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : Gerber Files.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+*************************************************************
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW2AR-18" package="QFN88" speed="7" partNumber="GW2AR-LV18QN88C7/I6"/>
+    <FileList>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/picorv32.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/picosoc.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/advspi.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/ahb_bus.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/picosoc_dtcm.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/picosoc_itcm.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/wb_bus.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/wb_brancher.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/wbgpio.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/wbi2c.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/wbspi.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/wbuart.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/simpleuart.v" type="verilog"/>
+        <File path="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32/dm.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="1"/>
+        <Option type="include_path" value="C:/Gowin/Gowin_V1.9.11_x64/IDE/ipcore/GowinPicoRV32/Gowin_PicoRV32"/>
+        <Option type="include_path" value="C:/Users/user/projects/others/openmv_sterecam/gowin/stereocam_seq/src/gowin_picorv32/temp/gowin_picorv32"/>
+        <Option type="output_file" value="gowin_picorv32.vg"/>
+        <Option type="output_template" value="gowin_picorv32_tmp.v"/>
+        <Option type="ram_balance" value="1"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="top_module" value="Gowin_PicoRV32_Top"/>
+        <Option type="vcc" value="1.0"/>
+        <Option type="vccx" value="3.3"/>
+        <Option type="verilog_language" value="sysv-2017"/>
+    </OptionList>
+</Project>
