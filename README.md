@@ -47,7 +47,7 @@ Number of address space passed in high 8 bits of i2c address, number of register
 |CAM_EXPOSURE_REG_HIGH	|0x82           |High 16 bits  of exposure(in 27Mhz ticks)            |
 |CAM_FRAME_WIDTH			|0x84|Frame width(single image width)|
 |CAM_FRAME_HEIGHT			|0x86|Frame height(single image width)|
-|CAM_DIFF_MODE			|0x88|Write 1 to emable frame-difference mode|
+|CAM_DIFF_MODE			|0x88|Write 1 to enable frame-difference mode|
 |CAM_FILTERS_TYPE			|0x8A|Morphological transformations filters mode. See the description below|
 |CAM_GAMMA_OFFSET			|0x8C|LUT ram offset for write|
 |CAM_GAMMA_VALUE			|0x8E|LUT ram data for write|
