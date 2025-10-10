@@ -27,7 +27,7 @@ https://user-images.githubusercontent.com/16865504/214339641-29158f36-7dc3-4a27-
  - MT9V034 image sensors (monochrome, global shutter, HDR)
  - Gowin GW2AR FPGA with RISC-V soft-cpu core inside
  - SD card
- - FPGA ISP with frame-difference, gamma correction and morphological transformations are implemented
+ - ISP with frame-difference, gamma correction and morphological transformations are implemented on FPGA
  
  **Operation**
  
