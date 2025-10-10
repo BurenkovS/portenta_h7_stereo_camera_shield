@@ -40,6 +40,8 @@ for i, detection_list in enumerate(net.detect(img, roi=NET_ROI,thresholds=[(math
             continue  # background class
         if len(detection_list) == 0:
             continue  # no detections for this class?
+ 
+        ...
 
         img_template = img.copy(1.0, 1.0, ([x-10, y-10, w+20, h+20]), copy=True)
         r = img.find_template(img_template, 0.7, step=4 , roi=[WINDOW_FRAME_WIDTH, 0, WINDOW_FRAME_WIDTH, WINDOW_FRAME_HEIGH])
